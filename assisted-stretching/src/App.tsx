@@ -21,6 +21,24 @@ import {
   Twitter
 } from 'lucide-react';
 
+/* === IMAGE IMPORTS (YOUR ASSETS) === */
+import heroImg from './assets/spa2.png';
+import resetImg from './assets/spa11.png';
+import signatureImg from './assets/spa9.jpeg';
+import deepImg from './assets/spa6.jpeg';
+import trustImg from './assets/spa4.jpeg';
+
+/* Gallery images (in order you specified) */
+import g1 from './assets/spa-logo.jpeg';
+import g2 from './assets/spa4.jpeg';
+import g3 from './assets/spa5.jpeg';
+import g4 from './assets/spa7.jpeg';
+import g5 from './assets/spa10.jpeg';
+import g6 from './assets/warning spa.jpeg';
+
+/* CTA image */
+import ctaImg from './assets/spa2.png';
+
 interface RevealProps {
   children: React.ReactNode;
   delay?: number;
@@ -140,6 +158,7 @@ export default function App() {
                 <a href="#book" className="btn btn-primary px-8 py-4 text-base">Book First Session</a>
                 <a href="#pricing" className="btn btn-secondary px-8 py-4 text-base">View Sessions</a>
               </div>
+
               <div className="grid grid-cols-2 gap-4 max-w-2xl">
                 {[
                   { title: 'Fully Clothed', desc: 'Professional guided bodywork' },
@@ -159,16 +178,16 @@ export default function App() {
               <div className="relative">
                 <div className="glass rounded-[var(--radius-xl)] overflow-hidden aspect-[4/5] shadow-2xl">
                   <img 
-                    src="https://picsum.photos/seed/stretching/800/1000" 
+                    src={heroImg}
                     alt="Stretching session" 
                     className="w-full h-full object-cover saturate-[1.05]"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute bottom-4 left-4 right-4 glass p-4 rounded-[var(--radius-lg)]">
                     <strong className="block text-sm">Premium Stretch Therapy</strong>
                     <span className="text-xs text-[var(--color-text-muted)]">Focused on hips, back, and shoulders.</span>
                   </div>
                 </div>
+
                 <div className="absolute -right-4 top-1/4 glass p-6 rounded-[var(--radius-lg)] max-w-[180px] hidden lg:block">
                   <strong className="block text-2xl text-[var(--color-primary-2)] font-display">$20 OFF</strong>
                   <span className="text-xs text-[var(--color-text-muted)]">First session offer for new clients.</span>
@@ -185,7 +204,9 @@ export default function App() {
               <Reveal>
                 <span className="text-[var(--color-primary-2)] text-[10px] uppercase tracking-[0.2em] mb-4 block">Targeted Relief</span>
                 <h2 className="text-4xl md:text-5xl font-display mb-6">Target the tension that keeps you from moving freely.</h2>
-                <p className="text-[var(--color-text-muted)]">We focus on the areas that impact your daily life the most, using guided recovery techniques that go beyond standard stretching.</p>
+                <p className="text-[var(--color-text-muted)]">
+                  We focus on the areas that impact your daily life the most, using guided recovery techniques that go beyond standard stretching.
+                </p>
               </Reveal>
             </div>
 
@@ -230,7 +251,9 @@ export default function App() {
               <Reveal>
                 <span className="text-[var(--color-primary-2)] text-[10px] uppercase tracking-[0.2em] mb-4 block">Our Sessions</span>
                 <h2 className="text-4xl md:text-5xl font-display mb-6">A cleaner way to recover.</h2>
-                <p className="text-[var(--color-text-muted)]">Choose the session that fits your schedule and recovery needs. Each appointment is tailored to your body's specific tension points.</p>
+                <p className="text-[var(--color-text-muted)]">
+                  Choose the session that fits your schedule and recovery needs. Each appointment is tailored to your body's specific tension points.
+                </p>
               </Reveal>
             </div>
 
@@ -239,19 +262,19 @@ export default function App() {
                 { 
                   title: '45-Minute Reset', 
                   desc: 'Focused release for immediate attention on problem areas.',
-                  img: 'https://picsum.photos/seed/reset/600/450',
+                  img: resetImg,
                   points: ['Targeted mobility work', 'Perfect entry point']
                 },
                 { 
                   title: '60-Minute Signature', 
                   desc: 'Our core offer for full-body balance and recovery flow.',
-                  img: 'https://picsum.photos/seed/signature/600/450',
+                  img: signatureImg,
                   points: ['Most balanced session', 'Ideal for repeat clients']
                 },
                 { 
                   title: '90-Minute Deep Recovery', 
                   desc: 'Detailed work for those who want a slower, deeper experience.',
-                  img: 'https://picsum.photos/seed/deep/600/450',
+                  img: deepImg,
                   points: ['Extra time for problem areas', 'Premium recovery feel']
                 }
               ].map((service, i) => (
@@ -262,7 +285,6 @@ export default function App() {
                         src={service.img} 
                         alt={service.title} 
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        referrerPolicy="no-referrer"
                       />
                     </div>
                     <div className="p-8">
@@ -283,7 +305,6 @@ export default function App() {
             </div>
           </div>
         </section>
-
         {/* Experience Section */}
         <section id="experience" className="py-24 bg-black/10">
           <div className="container grid md:grid-cols-2 gap-16 items-center">
@@ -311,84 +332,24 @@ export default function App() {
                 </ul>
               </div>
             </Reveal>
+
             <Reveal delay={0.2}>
               <div className="relative">
                 <div className="glass rounded-[var(--radius-xl)] overflow-hidden aspect-[4/5] shadow-2xl">
                   <img 
-                    src="https://picsum.photos/seed/room/800/1000" 
+                    src={trustImg}
                     alt="Wellness room" 
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute bottom-4 left-4 right-4 glass p-6 rounded-[var(--radius-lg)]">
                     <h3 className="text-xl font-display mb-2">Designed for Trust</h3>
-                    <p className="text-xs text-[var(--color-text-muted)]">A private in-home suite experience that prioritizes your comfort and recovery.</p>
+                    <p className="text-xs text-[var(--color-text-muted)]">
+                      A private in-home suite experience that prioritizes your comfort and recovery.
+                    </p>
                   </div>
                 </div>
               </div>
             </Reveal>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section id="pricing" className="py-24">
-          <div className="container">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <Reveal>
-                <span className="text-[var(--color-primary-2)] text-[10px] uppercase tracking-[0.2em] mb-4 block">Investment</span>
-                <h2 className="text-4xl md:text-5xl font-display mb-6">Clear, simple pricing.</h2>
-                <p className="text-[var(--color-text-muted)]">Start with a single session or commit to a bundle for long-term mobility progress.</p>
-              </Reveal>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { 
-                  title: '45-Minute Reset', 
-                  price: '45', 
-                  tag: 'Intro Offer',
-                  desc: 'Ideal for first-timers or focused body areas.',
-                  points: ['Targeted relief', 'Great first session', 'Limited time offer']
-                },
-                { 
-                  title: '60-Minute Signature', 
-                  price: '65', 
-                  tag: 'Most Popular',
-                  featured: true,
-                  desc: 'Our best default booking for full-body recovery.',
-                  points: ['Balanced appointment', 'Best lead offer', 'Bridge into bundles']
-                },
-                { 
-                  title: 'Bundle Packages', 
-                  price: '3x', 
-                  tag: 'Best Value',
-                  desc: 'Consistency and savings for real progress.',
-                  points: ['Long-term mobility', 'Priority booking', 'Higher-ticket results']
-                }
-              ].map((plan, i) => (
-                <Reveal key={i} delay={i * 0.1}>
-                  <div className={`glass p-8 rounded-[var(--radius-xl)] h-full flex flex-col ${plan.featured ? 'border-[var(--color-primary)]/40 shadow-[0_16px_36px_rgba(216,161,93,0.14)]' : ''}`}>
-                    <h3 className="text-2xl font-display mb-2">{plan.title}</h3>
-                    <p className="text-xs text-[var(--color-text-muted)] mb-6">{plan.desc}</p>
-                    <div className="flex items-baseline gap-1 mb-8">
-                      <span className="text-5xl font-display leading-none">{plan.price.includes('x') ? '' : '$'}{plan.price}</span>
-                      <span className="text-sm text-[var(--color-text-muted)]">{plan.tag}</span>
-                    </div>
-                    <ul className="space-y-4 mb-8 flex-grow">
-                      {plan.points.map((p, j) => (
-                        <li key={j} className="flex items-center gap-3 text-sm text-[var(--color-text-muted)]">
-                          <Check size={14} className="text-[var(--color-primary)]" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                    <a href="#book" className={`btn w-full py-4 ${plan.featured ? 'btn-primary' : 'btn-secondary'}`}>
-                      Select Session
-                    </a>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -397,27 +358,31 @@ export default function App() {
           <div className="container">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <Reveal delay={0.1} className="aspect-[3/4] rounded-[var(--radius-lg)] overflow-hidden glass">
-                <img src="https://picsum.photos/seed/g1/600/800" alt="Gallery" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={g1} alt="Gallery" className="w-full h-full object-cover" />
               </Reveal>
+
               <Reveal delay={0.2} className="aspect-square md:aspect-[4/3] rounded-[var(--radius-lg)] overflow-hidden glass md:col-span-2">
-                <img src="https://picsum.photos/seed/g2/1200/900" alt="Gallery" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={g2} alt="Gallery" className="w-full h-full object-cover" />
               </Reveal>
+
               <Reveal delay={0.3} className="aspect-[3/4] rounded-[var(--radius-lg)] overflow-hidden glass">
-                <img src="https://picsum.photos/seed/g3/600/800" alt="Gallery" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={g3} alt="Gallery" className="w-full h-full object-cover" />
               </Reveal>
+
               <Reveal delay={0.4} className="aspect-square md:aspect-[4/3] rounded-[var(--radius-lg)] overflow-hidden glass md:col-span-2">
-                <img src="https://picsum.photos/seed/g4/1200/900" alt="Gallery" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={g4} alt="Gallery" className="w-full h-full object-cover" />
               </Reveal>
+
               <Reveal delay={0.5} className="aspect-[3/4] rounded-[var(--radius-lg)] overflow-hidden glass">
-                <img src="https://picsum.photos/seed/g5/600/800" alt="Gallery" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={g5} alt="Gallery" className="w-full h-full object-cover" />
               </Reveal>
+
               <Reveal delay={0.6} className="aspect-[3/4] rounded-[var(--radius-lg)] overflow-hidden glass">
-                <img src="https://picsum.photos/seed/g6/600/800" alt="Gallery" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={g6} alt="Gallery" className="w-full h-full object-cover" />
               </Reveal>
             </div>
           </div>
         </section>
-
         {/* Testimonials */}
         <section className="py-24">
           <div className="container">
@@ -430,7 +395,9 @@ export default function App() {
                 <Reveal key={i} delay={i * 0.1}>
                   <div className="glass p-8 rounded-[var(--radius-xl)]">
                     <div className="flex gap-1 mb-4">
-                      {[1,2,3,4,5].map(s => <Star key={s} size={14} fill="var(--color-primary)" className="text-[var(--color-primary)]" />)}
+                      {[1,2,3,4,5].map(s => (
+                        <Star key={s} size={14} fill="var(--color-primary)" className="text-[var(--color-primary)]" />
+                      ))}
                     </div>
                     <p className="text-lg italic mb-6">"{t.quote}"</p>
                     <span className="text-sm font-bold text-[var(--color-primary-2)]">— {t.author}</span>
@@ -448,6 +415,7 @@ export default function App() {
               <Reveal>
                 <h2 className="text-4xl font-display text-center mb-12">Frequently Asked Questions</h2>
               </Reveal>
+
               <div className="space-y-4">
                 {[
                   { q: 'What should I wear to a session?', a: 'Comfortable clothing that allows movement. Because this is assisted stretching, clients stay fully clothed during the session.' },
@@ -479,21 +447,24 @@ export default function App() {
               <div className="glass rounded-[var(--radius-xl)] overflow-hidden grid md:grid-cols-2">
                 <div className="p-12 md:p-20 flex flex-col justify-center">
                   <span className="text-[var(--color-primary-2)] text-[10px] uppercase tracking-[0.2em] mb-4 block">Book the Experience</span>
-                  <h2 className="text-4xl md:text-6xl font-display mb-8 leading-tight">Ready to move <br />without restriction?</h2>
+                  <h2 className="text-4xl md:text-6xl font-display mb-8 leading-tight">
+                    Ready to move <br />without restriction?
+                  </h2>
                   <p className="text-[var(--color-text-muted)] mb-10 text-lg">
                     Join our community of clients who prioritize their recovery. Book your first session today and feel the difference.
                   </p>
+
                   <div className="flex flex-wrap gap-4">
                     <a href="mailto:hello@assistedstretching.com" className="btn btn-primary px-10 py-5 text-lg">Book Now</a>
                     <a href="tel:+10000000000" className="btn btn-secondary px-10 py-5 text-lg">Call Us</a>
                   </div>
                 </div>
+
                 <div className="hidden md:block relative">
                   <img 
-                    src="https://picsum.photos/seed/cta/800/1000" 
+                    src={ctaImg}
                     alt="CTA" 
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-linear-to-r from-[var(--color-surface)] to-transparent" />
                 </div>
@@ -514,19 +485,29 @@ export default function App() {
                 </div>
                 <div>
                   <span className="block text-sm font-bold uppercase tracking-wider">Assisted Stretching</span>
-                  <span className="block text-[10px] text-[var(--color-text-muted)] uppercase tracking-widest">Mobility • Recovery • Flow</span>
+                  <span className="block text-[10px] text-[var(--color-text-muted)] uppercase tracking-widest">
+                    Mobility • Recovery • Flow
+                  </span>
                 </div>
               </a>
+
               <p className="text-sm text-[var(--color-text-muted)] max-w-sm mb-6">
                 Premium assisted stretching focused on mobility, recovery, and full-body relief in a private, professional setting.
               </p>
+
               <div className="flex gap-4">
-                <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:text-[var(--color-primary)] transition-colors"><Instagram size={16} /></a>
-                <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:text-[var(--color-primary)] transition-colors"><Facebook size={16} /></a>
-                <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:text-[var(--color-primary)] transition-colors"><Twitter size={16} /></a>
+                <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:text-[var(--color-primary)] transition-colors">
+                  <Instagram size={16} />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:text-[var(--color-primary)] transition-colors">
+                  <Facebook size={16} />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:text-[var(--color-primary)] transition-colors">
+                  <Twitter size={16} />
+                </a>
               </div>
             </div>
-            
+
             <div>
               <h4 className="font-bold mb-6 uppercase text-xs tracking-widest">Quick Links</h4>
               <ul className="space-y-4 text-sm text-[var(--color-text-muted)]">
@@ -542,16 +523,18 @@ export default function App() {
               <ul className="space-y-4 text-sm text-[var(--color-text-muted)]">
                 <li className="flex items-start gap-3">
                   <MapPin size={16} className="mt-0.5 shrink-0" />
-                  <span>123 Wellness Way, <br />Suite 100, City, ST</span>
+                  <span>
+                    123 Wellness Way, <br />Suite 100, City, ST
+                  </span>
                 </li>
-                <li className="flex items-center gap-3">
+                <li classname="flex items-center gap-3">
                   <Clock size={16} className="shrink-0" />
                   <span>Mon - Sat: 8am - 8pm</span>
                 </li>
               </ul>
             </div>
           </div>
-          
+
           <div className="pt-12 border-t border-[var(--color-border)] flex flex-col md:flex-row justify-between gap-6 text-[10px] text-[var(--color-text-muted)] uppercase tracking-widest">
             <p>© 2026 Assisted Stretching. All rights reserved.</p>
             <div className="flex gap-8">
@@ -564,3 +547,4 @@ export default function App() {
     </div>
   );
 }
+
