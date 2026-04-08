@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Manrope", Arial, sans-serif;
+
+  --color-bg: #120d0c;
+  --color-surface: rgba(39, 25, 21, 0.72);
+  --color-surface-2: rgba(62, 40, 31, 0.56);
+  --color-glass: rgba(255, 255, 255, 0.09);
+  --color-border: rgba(255, 236, 214, 0.12);
+  --color-text: #f7ecdf;
+  --color-text-muted: #ccb9aa;
+  --color-primary: #d8a15d;
+  --color-primary-2: #f0c891;
+  --color-accent: #8f5b36;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+}
+
+@layer base {
+  :root {
+    --bg: #120d0c;
+    --text: #f7ecdf;
+  }
+
+  [data-theme="light"] {
+    --bg: #f2ebe4;
+    --text: #261a15;
+    
+    --color-bg: #f2ebe4;
+    --color-surface: rgba(255, 252, 249, 0.74);
+    --color-surface-2: rgba(255, 248, 242, 0.86);
+    --color-glass: rgba(255, 255, 255, 0.56);
+    --color-border: rgba(77, 49, 33, 0.12);
+    --color-text: #261a15;
+    --color-text-muted: #6a594c;
+    --color-primary: #9b6232;
+    --color-primary-2: #c78a52;
+    --color-accent: #6e4328;
+  }
+
+  body {
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] font-body antialiased transition-colors duration-300;
+    background-image: 
+      radial-gradient(circle at top left, rgba(216,161,93,0.18), transparent 32%),
+      radial-gradient(circle at top right, rgba(240,200,145,0.12), transparent 28%),
+      linear-gradient(180deg, #140f0d 0%, #120d0c 38%, #1c1412 100%);
+  }
+
+  [data-theme="light"] body {
+    background-image: 
+      radial-gradient(circle at top left, rgba(199,138,82,0.16), transparent 30%),
+      radial-gradient(circle at top right, rgba(214,184,153,0.2), transparent 30%),
+      linear-gradient(180deg, #f6f0ea 0%, #efe7df 100%);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl saturate-150 border border-[var(--color-border)] bg-[var(--color-surface)];
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-primary {
+    @apply bg-linear-to-br from-[var(--color-primary)] to-[var(--color-primary-2)] text-[#1d120d] shadow-[0_10px_26px_rgba(216,161,93,0.25)];
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--color-glass)] text-[var(--color-text)] border border-[var(--color-border)];
+  }
+
+  .container {
+    @apply max-w-[1180px] mx-auto px-4;
+  }
+}
